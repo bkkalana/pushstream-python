@@ -7,8 +7,9 @@ from websocket import WebSocketApp
 from threading import Thread
 
 class PushStream:
-    def __init__(self, app_key, ws_url='wss://ws.pushstream.ceylonitsolutions.online', api_url='https://api.pushstream.ceylonitsolutions.online'):
+    def __init__(self, app_key, app_id=None, ws_url='wss://ws.pushstream.ceylonitsolutions.online', api_url='https://api.pushstream.ceylonitsolutions.online'):
         self.app_key = app_key
+        self.app_id = app_id
         self.ws_url = ws_url
         self.api_url = api_url
         self.ws = None
@@ -20,6 +21,9 @@ class PushStream:
         self.should_reconnect = True
 
     def connect(self):
+        if not self.app_id or not self.app_key:
+            raise ValueError('app_id and app_key are required')
+
         def on_message(ws, message):
             data = json.loads(message)
             
@@ -46,7 +50,7 @@ class PushStream:
             print("[PushStream] Connection opened")
 
         self.ws = WebSocketApp(
-            self.ws_url,
+            f"{self.ws_url}?app_id={self.app_id}&app_key={self.app_key}",
             on_message=on_message,
             on_error=on_error,
             on_close=on_close,
