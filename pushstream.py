@@ -7,7 +7,7 @@ from websocket import WebSocketApp
 from threading import Thread
 
 class PushStream:
-    def __init__(self, app_key, ws_url='ws://localhost:3001', api_url='http://localhost:8000'):
+    def __init__(self, app_key, ws_url='wss://ws.pushstream.ceylonitsolutions.online', api_url='https://api.pushstream.ceylonitsolutions.online'):
         self.app_key = app_key
         self.ws_url = ws_url
         self.api_url = api_url
