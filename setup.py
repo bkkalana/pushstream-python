@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pushstream-python',
-    version='1.0.0',
+    version='1.0.1',
     description='Python SDK for PushStream real-time messaging',
     author='Ceylon IT Solutions',
     author_email='info@ceylonitsolutions.online',
