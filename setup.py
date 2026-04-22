@@ -5,12 +5,14 @@ setup(
     version='1.0.1',
     description='Python SDK for PushStream real-time messaging',
     author='Ceylon IT Solutions',
-    author_email='info@ceylonitsolutions.online',
+    author_email='support@pushstream.online',
     url='https://github.com/bkkalana/pushstream-python',
     packages=find_packages(),
+    py_modules=['pushstream'],
+    test_suite='tests',
     install_requires=[
-        'websocket-client>=1.0.0',
-        'requests>=2.25.0',
+        'websocket-client>=1.6.0',
+        'requests>=2.31.0',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
